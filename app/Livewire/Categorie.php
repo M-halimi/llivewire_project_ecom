@@ -3,18 +3,25 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
+// use App\Models\Categorie; // Make sure to import the Categorie model
 
 class Categorie extends Component
 {
+    use WithPagination;
+
+    // protected $paginationTheme = 'bootstrap';
+
 
     public $categories = [];
-    public $categorie = '';
-    //    dd($categories);
+
     public function render()
     {
-dd(    $this->categorie = \App\Models\Categorie::all() ) ;       
+        // Fetch categories and assign them to $categories
+        $this->categories = \App\Models\Categorie::all();
+
         return view('livewire.categorie', [
-            'categorie' => $this->categorie
-        ])->layout('components.layouts.app')->with('categorie');
+            'categories' => $this->categories
+        ])->layout('components.layouts.app');
     }
 }

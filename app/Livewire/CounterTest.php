@@ -21,6 +21,6 @@ class CounterTest extends Component
 
     public function render()
     {
-        return view('livewire.counter-test')->layout('components.layouts.app')->with('counter');
+        return view('livewire.counter-test')->layout('                      .layouts.app')->with('counter');
     }
 }

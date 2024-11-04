@@ -1,7 +1,4 @@
 <div>
-    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
     <section class="py-1 bg-blueGray-50">
         <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
             <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -11,11 +8,9 @@
                             <h3 class="font-semibold text-base text-blueGray-700">Page Visits</h3>
                         </div>
                         <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                            <a href="{{ route('product') }}">
-                                <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
-                                    See all
-                                </button>
-                            </a>
+                            <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                See all
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -34,7 +29,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($categories as $categorie)
+                            @foreach ($categories as $key => $categorie)
                                 <tr>
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         {{ $categorie->id }}
@@ -46,12 +41,8 @@
                             @endforeach
                         </tbody>
                     </table>
-
-                    <!-- Pagination links -->
-                    <div class="px-6 py-3">
-                        {{-- {{ $categories->links() }} --}}
-                    </div>
                 </div>
+                
             </div>
         </div>
     </section>

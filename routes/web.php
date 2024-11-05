@@ -10,3 +10,4 @@ Route::get('/', function () {
 });
 Route::get('/categorie', Categorie::class)->name('categorie');
 Route::get('/product', Product::class)->name('product');
+Route::get('/counter', CounterTest::class)->name('counter');

@@ -1,6 +1,5 @@
-@slot('title', "counter page")
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', $lang ?? app()->getLocale()) }}">
 
     <head>
 

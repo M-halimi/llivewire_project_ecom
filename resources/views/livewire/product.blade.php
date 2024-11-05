@@ -80,7 +80,7 @@
             </td>
 
             <td>
-                {{-- {{ $product->categorie->name }} --}}
+                {{ $product->categorie }}
             </td>
         </tr>
         @endforeach

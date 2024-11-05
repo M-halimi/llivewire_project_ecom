@@ -2,7 +2,8 @@
 
 namespace App\Livewire;
 
-use Illuminate\Support\Benchmark;
+use App\Models\Product as ProductModel;
+use App\Models\Categorie;
 use Livewire\Component;
 
 class Product extends Component
@@ -12,12 +13,11 @@ class Product extends Component
 
     public function render()
     {
-        // testing
-        // Benchmark::dd( [    'product 1' => fn () => \App\Models\Product::all(),
-        // ]);
-        // $this->products = \App\Models\Product::all();
-        return view('livewire.product',[
-            'produtcs' => \App\Models\Product::paginate(10)
-        ])->layout('components.layouts.app');
+        $query = ProductModel::query();
+
+        return view('livewire.product', [
+            'products' => $query->with('categorie_id')->get(),
+            'categories' => Categorie::all()
+        ])->layout('components.layouts.app')->title('Page de Product');
     }
 }

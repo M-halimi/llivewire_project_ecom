@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\App;
+
 use Livewire\Component;
 
 class CounterTest extends Component
@@ -21,6 +23,8 @@ class CounterTest extends Component
 
     public function render()
     {
-        return view('livewire.counter-test')->layout('                      .layouts.app')->with('counter');
+        App::setLocale('fr');
+
+        return view('livewire.counter-test')->layout('components.layouts.app')->with('counter');
     }
 }

@@ -29,6 +29,6 @@ class Categorie extends Component
 
        return view('livewire.categorie', [
         // 'categories' => \App\Models\Categorie::all()
-    ])->layout('components.layouts.app');
+    ])->layout('components.layouts.app')->title('Page de Categorie');
     }
 }

@@ -5,11 +5,15 @@
         <p class="text-slate-500">Overview of the invoices.</p>
     </div>
     <div class="ml-3">
+        <div></div>
+        <button class="bg-green-600 text-black rounded-full font-medium  mb-4 w-40 py-2 hover:scale-90 hover:text-white hover:-translate-x-3 hover:duration-200 hover:transform">
+            Ajouter un product
+        </button>
         <div class="w-full max-w-sm min-w-[200px] relative">
         <div class="relative">
-            <input wire:model.live="search"
+            <input wire:model="search"
             class="bg-white w-full pr-11 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
-            placeholder="Search for invoice..."
+            placeholder="Search for invoice... " type="search"
             />
             <button
             class="absolute h-8 w-8 right-1 top-1 my-auto px-2 flex items-center bg-white rounded "
@@ -25,7 +29,7 @@
 </div>
 
 <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
-  <table class="w-full text-left table-auto min-w-max">
+  <table  class="table-auto border-collapse border border-slate-400 ">
     <thead>
       <tr>
         <th class="p-4 border-b border-slate-300 bg-slate-50">
@@ -62,25 +66,30 @@
     </thead>
     <tbody>
         @foreach ($products as $product)
-        <tr>
-            <td>
+        <tr class="cols">
+            <td class="border border-slate-300">
                 {{ $product->name }}
             </td>
 
-            <td>
+            <td class="border border-slate-300">
                 {{ $product->price }}
             </td>
 
-            <td>
+            <td class="border border-slate-300">
                 {{ $product->qty }}
             </td>
 
-            <td>
+            <td class="border border-slate-300">
                 {{ $product->description }}
             </td>
 
-            <td>
-                {{ $product->categorie }}
+            <td class="border border-slate-300">
+                {{ $product->categories ? : 'halimi' }}
+            </td>
+            <td class="bg-red-500 border border-slate-300 text-white rounded-full text-center font-extralight hover:bg-red-400 hover:text-black w-12 py-2 px-2">
+                <a href="">
+                    Edit
+                </a>
             </td>
         </tr>
         @endforeach

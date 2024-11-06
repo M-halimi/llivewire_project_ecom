@@ -5,13 +5,15 @@
         <p class="text-slate-500">Overview of the invoices.</p>
     </div>
     <div class="ml-3">
-        <div></div>
+        <div>
+            <button wire:click="clickme">Cllick me!</button>
+        </div>
         <button class="bg-green-600 text-black rounded-full font-medium  mb-4 w-40 py-2 hover:scale-90 hover:text-white hover:-translate-x-3 hover:duration-200 hover:transform">
             Ajouter un product
         </button>
         <div class="w-full max-w-sm min-w-[200px] relative">
         <div class="relative">
-            <input wire:model="search"
+            <input wire:model.live="search"
             class="bg-white w-full pr-11 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
             placeholder="Search for invoice... " type="search"
             />
@@ -65,7 +67,7 @@
       </tr>
     </thead>
     <tbody>
-        @foreach ($products as $product)
+        @foreach ($this->products as $product)
         <tr class="cols">
             <td class="border border-slate-300">
                 {{ $product->name }}
@@ -95,6 +97,9 @@
         @endforeach
     </tbody>
   </table>
+</div>
+<div>
+<h2>{{ $this->title1 }}</h2>
 </div>
 </div>
 

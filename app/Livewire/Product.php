@@ -6,12 +6,17 @@ namespace App\Livewire;
 use Illuminate\Support\Benchmark;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use function Laravel\Prompts\search;
 
 class Product extends Component
 {
-    public $search;
+    private $title1 = 'test';
+    public function clickme(){
+        dump('click me!');
+    }
+    public $search = '';
 
-    protected $queryString = ['search'];
+    // protected $queryString = ['search'];
     public $products = [];
     public function mount(){
         // dd($this->products = Auth::user()->products);
@@ -21,6 +26,7 @@ class Product extends Component
 
     public function render()
     {
+         $title  = 'title';
         // dd($this->products->categorie);
         // testing
         // Benchmark::dd( [    'product 1' => fn () => \App\Models\Product::all(),
@@ -30,7 +36,7 @@ class Product extends Component
         $this->categorie = \App\Models\Categorie::all();
 
         return view('livewire.product',[
-          'products' => \App\Models\Product::where('name', 'like', '%'.$this->search.'%')->get(),
+        //   'products' => Product::search($this->search),
         ])->layout('components.layouts.app')->title('Pgae de Product');
     }
 }
